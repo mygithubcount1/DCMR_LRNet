@@ -19,9 +19,6 @@ import torchvision.transforms.functional as TF
 import sys
 import logging
 
-
-
-
 script_name = os.path.basename(sys.argv[0])
 log_filename = os.path.splitext(script_name)[0] + ".log"
 log_filename = os.path.join("./logs", log_filename)
@@ -29,13 +26,12 @@ log_filename = os.path.join("./logs", log_filename)
 if os.path.exists(f"./logs") is False:
     os.makedirs(f"./logs")
 
-
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler(log_filename),  
-        logging.StreamHandler(sys.stderr)  
+        logging.FileHandler(log_filename),
+        logging.StreamHandler(sys.stderr)
     ]
 )
 
@@ -43,9 +39,9 @@ logger = logging.getLogger(__name__)
 
 
 class TopCrop:
-    def __init__(self, crop_size,crop_dim_vertical):
+    def __init__(self, crop_size, crop_dim_vertical):
         self.crop_size = crop_size
-        self.crop_dim_vertical=crop_dim_vertical
+        self.crop_dim_vertical = crop_dim_vertical
 
     def __call__(self, img):
         width, height = img.size
@@ -56,10 +52,12 @@ class TopCrop:
         else:
             top = (height - self.crop_size) // 2
             return TF.crop(img, top, 0, self.crop_size, self.crop_size)
+
+
 class BottomCrop:
-    def __init__(self, crop_size,crop_dim_vertical):
+    def __init__(self, crop_size, crop_dim_vertical):
         self.crop_size = crop_size
-        self.crop_dim_vertical=crop_dim_vertical
+        self.crop_dim_vertical = crop_dim_vertical
 
     def __call__(self, img):
         width, height = img.size
@@ -71,7 +69,7 @@ class BottomCrop:
             top = (height - self.crop_size) // 2
             left = width - self.crop_size
             return TF.crop(img, top, left, self.crop_size, self.crop_size)
-        
+
 
 def main(args):
     set_seed(args.seed)
@@ -86,49 +84,49 @@ def main(args):
     rawdata_root = ""
     anno_train = ""
     anno_test = ""
-    crop_dim_vertical=True
-    dataset_class = BaseFGDataset 
-    
-    if args.dataset=='COTTON':
-        args.num_classes=80
-        crop_dim_vertical=False
-        rawdata_root = '/home/cv2025/lmb/new_code/dataset/COTTON/images4/'
-        anno_train = '/home/cv2025/lmb/new_code/dataset/COTTON/anno/train.txt'
-        anno_test = '/home/cv2025/lmb/new_code/dataset/COTTON/anno/test.txt'
-    elif args.dataset=="SoyAgeing":
-        args.num_classes=198
-        rawdata_root = f'/home/cv2025/lmb/new_code/dataset/SoyAgeing/{args.stage}/images4/'
-        anno_train = f'/home/cv2025/lmb/new_code/dataset/SoyAgeing/{args.stage}/anno/train.txt'
-        anno_test = f'/home/cv2025/lmb/new_code/dataset/SoyAgeing/{args.stage}/anno/test.txt'
-    elif args.dataset=='SoyCultivar200':
-        args.num_classes=200
-        rawdata_root = r'/home/cv2025/lmb/new_code/dataset/SoyCultivar200_dataset'
+    crop_dim_vertical = True
+    dataset_class = BaseFGDataset
+
+    if args.dataset == 'COTTON':
+        args.num_classes = 80
+        crop_dim_vertical = False
+        rawdata_root = './dataset/COTTON/images4/'
+        anno_train = './dataset/COTTON/anno/train.txt'
+        anno_test = './dataset/COTTON/anno/test.txt'
+    elif args.dataset == "SoyAgeing":
+        args.num_classes = 198
+        rawdata_root = f'./dataset/SoyAgeing/{args.stage}/images4/'
+        anno_train = f'./dataset/SoyAgeing/{args.stage}/anno/train.txt'
+        anno_test = f'./dataset/SoyAgeing/{args.stage}/anno/test.txt'
+    elif args.dataset == 'SoyCultivar200':
+        args.num_classes = 200
+        rawdata_root = r'./dataset/SoyCultivar200_dataset'
         if args.swap:
-            anno_train = rf'/home/cv2025/lmb/new_code/dataset/200_anno2/train_swap_{args.position}.txt'
-            anno_test = rf'/home/cv2025/lmb/new_code/dataset/200_anno2/test_swap_{args.position}.txt'
+            anno_train = rf'./dataset/200_anno2/train_swap_{args.position}.txt'
+            anno_test = rf'./dataset/200_anno2/test_swap_{args.position}.txt'
         else:
-            anno_train = rf'/home/cv2025/lmb/new_code/dataset/200_anno2/train_{args.position}.txt'
-            anno_test = rf'/home/cv2025/lmb/new_code/dataset/200_anno2/test_{args.position}.txt'
-        dataset_class = SoyCultivar200FGDataset  
-        args.resize_size=512
-    elif args.dataset=="soybean200":
-        args.num_classes=200
-        crop_dim_vertical=False
-        rawdata_root = '/home/cv2025/lmb/new_code/dataset/soybean200/images4/'
-        anno_train = '/home/cv2025/lmb/new_code/dataset/soybean200/anno/train.txt'
-        anno_test = '/home/cv2025/lmb/new_code/dataset/soybean200/anno/test.txt'
-    elif args.dataset=="SoyGene":
-        args.num_classes=1110
-        rawdata_root = '/home/cv2025/lmb/new_code/dataset/SoyGene/images4'
-        anno_train = '/home/cv2025/lmb/new_code/dataset/SoyGene/anno/train.txt'
-        anno_test = '/home/cv2025/lmb/new_code/dataset/SoyGene/anno/test.txt'
-    elif args.dataset=="SoyGlobal":  
-        args.num_classes=1938
-        rawdata_root = '/home/cv2025/lmb/new_code/dataset/SoyGlobal/images4'
-        anno_train = '/home/cv2025/lmb/new_code/dataset/SoyGlobal/anno/train.txt'
-        anno_test = '/home/cv2025/lmb/new_code/dataset/SoyGlobal/anno/test.txt'
+            anno_train = rf'./dataset/200_anno2/train_{args.position}.txt'
+            anno_test = rf'./dataset/200_anno2/test_{args.position}.txt'
+        dataset_class = SoyCultivar200FGDataset
+        args.resize_size = 512
+    elif args.dataset == "soybean200":
+        args.num_classes = 200
+        crop_dim_vertical = False
+        rawdata_root = './dataset/soybean200/images4/'
+        anno_train = './dataset/soybean200/anno/train.txt'
+        anno_test = './dataset/soybean200/anno/test.txt'
+    elif args.dataset == "SoyGene":
+        args.num_classes = 1110
+        rawdata_root = './dataset/SoyGene/images4'
+        anno_train = './SoyGene/anno/train.txt'
+        anno_test = './dataset/SoyGene/anno/test.txt'
+    elif args.dataset == "SoyGlobal":
+        args.num_classes = 1938
+        rawdata_root = './dataset/SoyGlobal/images4'
+        anno_train = './dataset/SoyGlobal/anno/train.txt'
+        anno_test = './dataset/SoyGlobal/anno/test.txt'
     else:
-        raise ValueError(f"Unsupported dataset: {args.dataset}")  
+        raise ValueError(f"Unsupported dataset: {args.dataset}")
 
     resize_size = args.resize_size
     crop_size = args.crop_size
@@ -136,8 +134,8 @@ def main(args):
     data_transform = {
         "train": transforms.Compose([
             transforms.RandomResizedCrop(crop_size),
-            transforms.RandomRotation(15),  
-            transforms.RandomHorizontalFlip(),  
+            transforms.RandomRotation(15),
+            transforms.RandomHorizontalFlip(),
             transforms.ToTensor(),
         ]),
         "val_center": transforms.Compose([
@@ -147,24 +145,22 @@ def main(args):
         ]),
         "val_top": transforms.Compose([
             transforms.Resize(resize_size),
-            TopCrop(crop_size,crop_dim_vertical),
+            TopCrop(crop_size, crop_dim_vertical),
             transforms.ToTensor(),
         ]),
         "val_bottom": transforms.Compose([
             transforms.Resize(resize_size),
-            BottomCrop(crop_size,crop_dim_vertical),
+            BottomCrop(crop_size, crop_dim_vertical),
             transforms.ToTensor(),
         ])
     }
     logging.info(args)
 
-    
     nw = args.nw
     logger.info('Using {} dataloader workers every process'.format(nw))
 
-
-    train_dataset = dataset_class(rawdata_root, anno_train, data_transform,is_train=True)
-    val_dataset = dataset_class(rawdata_root, anno_test, data_transform,is_train=False)
+    train_dataset = dataset_class(rawdata_root, anno_train, data_transform, is_train=True)
+    val_dataset = dataset_class(rawdata_root, anno_test, data_transform, is_train=False)
 
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=args.batch_size,
                                                shuffle=True, num_workers=nw)
@@ -265,8 +261,6 @@ if __name__ == '__main__':
         torch.use_deterministic_algorithms(True)
 
 
-
-
     parser = argparse.ArgumentParser()
     parser.add_argument('--num_classes', type=int, default=80)
     parser.add_argument('--epochs', type=int, default=160)
@@ -292,7 +286,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--position', type=str, default='U')
 
-    #Whether to use swap cross-validation for the SoyCultivar200 dataset
+    # Whether to use swap cross-validation for the SoyCultivar200 dataset
     parser.add_argument('--swap', type=bool, default=False)
 
     parser.add_argument('--resize_size', type=int, default=590)
