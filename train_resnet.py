@@ -89,40 +89,40 @@ def main(args):
     if args.dataset == 'COTTON':
         args.num_classes = 80
         crop_dim_vertical = False
-        rawdata_root = '/home/cv2025/lmb/new_code/dataset/COTTON/images4/'
-        anno_train = '/home/cv2025/lmb/new_code/dataset/COTTON/anno/train.txt'
-        anno_test = '/home/cv2025/lmb/new_code/dataset/COTTON/anno/test.txt'
+        rawdata_root = './dataset/COTTON/images4/'
+        anno_train = './dataset/COTTON/anno/train.txt'
+        anno_test = './dataset/COTTON/anno/test.txt'
     elif args.dataset == "SoyAgeing":
         args.num_classes = 198
-        rawdata_root = f'/home/cv2025/lmb/new_code/dataset/SoyAgeing/{args.stage}/images4/'
-        anno_train = f'/home/cv2025/lmb/new_code/dataset/SoyAgeing/{args.stage}/anno/train.txt'
-        anno_test = f'/home/cv2025/lmb/new_code/dataset/SoyAgeing/{args.stage}/anno/test.txt'
+        rawdata_root = f'./dataset/SoyAgeing/{args.stage}/images4/'
+        anno_train = f'./dataset/SoyAgeing/{args.stage}/anno/train.txt'
+        anno_test = f'./dataset/SoyAgeing/{args.stage}/anno/test.txt'
     elif args.dataset == 'SoyCultivar200':
         args.num_classes = 200
-        rawdata_root = r'/home/cv2025/lmb/new_code/dataset/SoyCultivar200_dataset'
+        rawdata_root = r'./dataset/SoyCultivar200_dataset'
         if args.swap:
-            anno_train = rf'/home/cv2025/lmb/new_code/dataset/200_anno2/train_swap_{args.position}.txt'
-            anno_test = rf'/home/cv2025/lmb/new_code/dataset/200_anno2/test_swap_{args.position}.txt'
+            anno_train = rf'./dataset/200_anno2/train_swap_{args.position}.txt'
+            anno_test = rf'./dataset/200_anno2/test_swap_{args.position}.txt'
         else:
-            anno_train = rf'/home/cv2025/lmb/new_code/dataset/200_anno2/train_{args.position}.txt'
-            anno_test = rf'/home/cv2025/lmb/new_code/dataset/200_anno2/test_{args.position}.txt'
+            anno_train = rf'./dataset/200_anno2/train_{args.position}.txt'
+            anno_test = rf'./dataset/200_anno2/test_{args.position}.txt'
         dataset_class = SoyCultivar200FGDataset  
         args.resize_size = 512
     elif args.dataset == "soybean200":
         args.num_classes = 200
-        rawdata_root = '/home/cv2025/lmb/new_code/dataset/soybean200/images4/'
-        anno_train = '/home/cv2025/lmb/new_code/dataset/soybean200/anno/train.txt'
-        anno_test = '/home/cv2025/lmb/new_code/dataset/soybean200/anno/test.txt'
+        rawdata_root = './dataset/soybean200/images4/'
+        anno_train = './dataset/soybean200/anno/train.txt'
+        anno_test = './dataset/soybean200/anno/test.txt'
     elif args.dataset == "SoyGene":
         args.num_classes = 1110
-        rawdata_root = '/home/cv2025/lmb/new_code/dataset/SoyGene/images4'
-        anno_train = '/home/cv2025/lmb/new_code/dataset/SoyGene/anno/train.txt'
-        anno_test = '/home/cv2025/lmb/new_code/dataset/SoyGene/anno/test.txt'
+        rawdata_root = './dataset/SoyGene/images4'
+        anno_train = './dataset/SoyGene/anno/train.txt'
+        anno_test = './dataset/SoyGene/anno/test.txt'
     elif args.dataset == "SoyGlobal": 
         args.num_classes = 1938
-        rawdata_root = '/home/cv2025/lmb/new_code/dataset/SoyGlobal/images4'
-        anno_train = '/home/cv2025/lmb/new_code/dataset/SoyGlobal/anno/train.txt'
-        anno_test = '/home/cv2025/lmb/new_code/dataset/SoyGlobal/anno/test.txt'
+        rawdata_root = './dataset/SoyGlobal/images4'
+        anno_train = './dataset/SoyGlobal/anno/train.txt'
+        anno_test = './dataset/SoyGlobal/anno/test.txt'
     else:
         raise ValueError(f"Unsupported dataset: {args.dataset}") 
 
