@@ -5,14 +5,30 @@ This repository contains the official implementation of the paper:
 > *Dual-Branch Feature Fusion and Multi-Region Ensemble for Ultra-Fine-Grained Plant Leaf Visual Recognition**
 > Submitted to *The Visual Computer* (2026).
 
-## Requirement
+## Environment
 
-- Python 3.8.20
-- torch 1.13.0
-- timm 1.0.15
-- numpy 1.21.6
-- pandas 1.1.5
-- Pillow  9.3.0
+There are two independent runtime environments for this project:
+
+### 1. Main Training & Inference Environment
+
+For model training, validation and inference
+
+- Python == 3.8.20
+- torch == 1.13.0
+- timm == 1.0.15
+- numpy == 1.21.6
+- pandas == 1.1.5
+- Pillow == 9.3.0
+
+###  2. Special Environment for `texture_extractor.py`
+
+Only for texture feature extraction
+
+- Python == 3.6.13
+- opencv-python == 4.3.0
+- scikit-image == 0.17.2
+- Pillow == 8.4.0
+- numpy == 1.19.2
 
 ## Dataset Availability
 
