@@ -227,11 +227,11 @@ if __name__ == '__main__':
     parser.add_argument('--save_dirname', type=str, default='weights')
     parser.add_argument('--weights_path', type=str, default='./weights/efficientnet_b0_ra-3dd342df.pth')
 
-    parser.add_argument('--trained_weights', type=str, default='./weights_COTTON_seed3405/model-max_acc.pth')
+    parser.add_argument('--trained_weights', type=str, default='./weights_COTTON_seed3407/model-max_acc.pth')
 
     parser.add_argument('--save_model', type=bool, default=False)
 
-    parser.add_argument('--seed', type=int, default=3405)
+    parser.add_argument('--seed', type=int, default=3407)
     parser.add_argument('--stage', type=str, default='R6')
     # soybean200、SoyAgeing、COTTON
     parser.add_argument('--dataset', type=str, default='COTTON')
