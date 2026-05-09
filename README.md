@@ -115,8 +115,8 @@ The download links for our preprocessed datasets and trained model weights are a
 ### 📦 Download Resources
 | Resource | Description | Link |
 |----------|-------------|------|
-| Preprocessed Datasets | COTTON & soybean200 | [百度网盘](https://pan.baidu.com/s/1gDTzdONoZeOYln802qSSZA?pwd=hn28) (提取码: `hn28`) |
-| Model Weights | Trained model weights (checkpoints for COTTON & soybean200) | [百度网盘](https://pan.baidu.com/s/1gDTzdONoZeOYln802qSSZA?pwd=hn28) (提取码: `hn28`) |
+| Preprocessed Datasets | COTTON & soybean200 | [Baidu Netdisk](https://pan.baidu.com/s/1gDTzdONoZeOYln802qSSZA?pwd=hn28) (Access code: `hn28`) |
+| Model Weights | Trained model weights (checkpoints for COTTON & soybean200) | [Baidu Netdisk](https://pan.baidu.com/s/1gDTzdONoZeOYln802qSSZA?pwd=hn28) (Access code: `hn28`) |
 
 ## Key Parameters
 
