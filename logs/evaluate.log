@@ -1,20 +1,20 @@
-2026-05-09 10:14:33,314 - INFO - Namespace(num_classes=200, epochs=160, nw=2, batch_size=4, lr=0.001, lrf=0.01, model_name='efficientnet_b0', freeze_layers=False, device='cuda', save_dirname='weights_soybean200_seed3407', weights_path='./weights/efficientnet_b0_ra-3dd342df.pth', trained_weights='./weights_soybean200_seed3407/model-max_acc.pth', save_model=False, seed=3407, stage='R6', dataset='soybean200', position='U', swap=False, resize_size=590, crop_size=448)
-2026-05-09 10:14:33,315 - INFO - Start Tensorboard with "tensorboard --logdir=runs", view at http://localhost:6006/
-2026-05-09 10:14:33,315 - INFO - Using 2 dataloader workers every process
-2026-05-09 10:14:33,325 - INFO - Training dataset size: 600
-2026-05-09 10:14:33,326 - INFO - Validation dataset size: 600
-2026-05-09 10:14:33,396 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
-2026-05-09 10:14:33,419 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
-2026-05-09 10:14:33,493 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
-2026-05-09 10:14:33,513 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
-2026-05-09 10:15:21,353 - INFO - [epoch 1]  val loss: 14.4553, val acc: 0.6367
-2026-05-09 10:15:48,807 - INFO - Namespace(num_classes=80, epochs=160, nw=2, batch_size=4, lr=0.001, lrf=0.01, model_name='efficientnet_b0', freeze_layers=False, device='cuda', save_dirname='weights_COTTON_seed3405', weights_path='./weights/efficientnet_b0_ra-3dd342df.pth', trained_weights='./weights_COTTON_seed3405/model-max_acc.pth', save_model=False, seed=3405, stage='R6', dataset='COTTON', position='U', swap=False, resize_size=590, crop_size=448)
-2026-05-09 10:15:48,808 - INFO - Start Tensorboard with "tensorboard --logdir=runs", view at http://localhost:6006/
-2026-05-09 10:15:48,808 - INFO - Using 2 dataloader workers every process
-2026-05-09 10:15:48,813 - INFO - Training dataset size: 240
-2026-05-09 10:15:48,813 - INFO - Validation dataset size: 240
-2026-05-09 10:15:48,896 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
-2026-05-09 10:15:48,925 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
-2026-05-09 10:15:49,006 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
-2026-05-09 10:15:49,107 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
-2026-05-09 10:16:09,066 - INFO - [epoch 1]  val loss: 7.2431, val acc: 0.7083
+2026-05-09 14:12:23,242 - INFO - Namespace(num_classes=80, epochs=160, nw=2, batch_size=4, lr=0.001, lrf=0.01, model_name='efficientnet_b0', freeze_layers=False, device='cuda', save_dirname='weights_COTTON_seed3407', weights_path='./weights/efficientnet_b0_ra-3dd342df.pth', trained_weights='./weights_COTTON_seed3407/model-max_acc.pth', save_model=False, seed=3407, stage='R6', dataset='COTTON', position='U', swap=False, resize_size=590, crop_size=448)
+2026-05-09 14:12:23,243 - INFO - Start Tensorboard with "tensorboard --logdir=runs", view at http://localhost:6006/
+2026-05-09 14:12:23,243 - INFO - Using 2 dataloader workers every process
+2026-05-09 14:12:23,370 - INFO - Training dataset size: 240
+2026-05-09 14:12:23,370 - INFO - Validation dataset size: 240
+2026-05-09 14:12:24,005 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
+2026-05-09 14:12:24,801 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
+2026-05-09 14:12:24,934 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
+2026-05-09 14:12:25,080 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
+2026-05-09 14:12:50,165 - INFO - [epoch 1]  val loss: 7.3528, val acc: 0.7250
+2026-05-09 14:13:34,508 - INFO - Namespace(num_classes=200, epochs=160, nw=2, batch_size=4, lr=0.001, lrf=0.01, model_name='efficientnet_b0', freeze_layers=False, device='cuda', save_dirname='weights_soybean200_seed3407', weights_path='./weights/efficientnet_b0_ra-3dd342df.pth', trained_weights='./weights_soybean200_seed3407/model-max_acc.pth', save_model=False, seed=3407, stage='R6', dataset='soybean200', position='U', swap=False, resize_size=590, crop_size=448)
+2026-05-09 14:13:34,508 - INFO - Start Tensorboard with "tensorboard --logdir=runs", view at http://localhost:6006/
+2026-05-09 14:13:34,508 - INFO - Using 2 dataloader workers every process
+2026-05-09 14:13:34,517 - INFO - Training dataset size: 600
+2026-05-09 14:13:34,518 - INFO - Validation dataset size: 600
+2026-05-09 14:13:34,694 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
+2026-05-09 14:13:34,742 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
+2026-05-09 14:13:34,913 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
+2026-05-09 14:13:35,078 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
+2026-05-09 14:14:28,620 - INFO - [epoch 1]  val loss: 14.4553, val acc: 0.6367
