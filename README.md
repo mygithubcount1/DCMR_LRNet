@@ -24,6 +24,10 @@ Ultra-fine-grained visual categorization (ultra-FGVC) is a critical task in comp
 - ✅ State-of-the-art performance on 6 ultra-fine-grained plant leaf datasets
 - ✅ Lightweight design, easy to reproduce and deploy for precision agriculture scenarios
 
+## Core Algorithm Details
+
+This repository fully implements the three core innovative modules proposed in the paper, and elaborates on their operating principles and implementation logic: including the dual-branch complementary feature extraction architecture, the dual-branch cross-layer bidirectional attention (DCBA) fusion mechanism, and the multi-region prediction ensemble strategy. We construct a dual-branch network to independently extract color and texture features of plant leaves. The DCBA module is adopted to realize bidirectional feature interaction and deep fusion across branches and layers, and the multi-region prediction ensemble strategy is utilized to significantly improve the stability and robustness of ultra-fine-grained recognition. Meanwhile, we accurately mark the corresponding source code files and functions of each core module: the overall structure of the dual-branch network is defined in `model.py` and `model_resnet.py`, the core DCBA attention module is encapsulated in `DCBA.py` and `DCBA_resnet.py`, texture feature preprocessing and extraction are completed by the `texture_extractor.py` series scripts, and the multi-region prediction ensemble logic is embedded in training scripts, evaluation scripts and the `utils.py` utility script for implementation.
+
 ## Environment
 
 There are two independent runtime environments for this project:
@@ -146,6 +150,8 @@ We report the mean and standard deviation of accuracy results obtained over **th
 |----------|-------------|------|
 | Preprocessed Datasets | COTTON & SoyCultivarLocal | [Baidu Netdisk](https://pan.baidu.com/s/1gDTzdONoZeOYln802qSSZA?pwd=hn28) (Access code: `hn28`) |
 | Model Weights | Trained model weights (checkpoints for COTTON & SoyCultivarLocal ) | [Baidu Netdisk](https://pan.baidu.com/s/1gDTzdONoZeOYln802qSSZA?pwd=hn28) (Access code: `hn28`) |
+
+Other preprocessed datasets and corresponding model training weights are being organized and will be uploaded gradually in subsequent updates.
 
 ## Key Parameters
 
