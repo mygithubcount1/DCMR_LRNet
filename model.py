@@ -54,7 +54,7 @@ class MyModel(nn.Module):
         super(MyModel, self).__init__()
         self.num_classes = args.num_classes
         self.main_model = MainModel('efficientnet_b0',pretrained=True,pretrained_cfg_overlay=dict(
-            file='../weights/efficientnet_b0_ra-3dd342df.pth'))
+            file=args.weights_path))
         self.attention1 = MyAttention(320, 80)
         self.attention2 = MyAttention(320, 80)
 

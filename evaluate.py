@@ -74,7 +74,6 @@ class BottomCrop:
 def main(args):
     set_seed(args.seed)
     device = torch.device(args.device if torch.cuda.is_available() else "cpu")
-    tb_writer = SummaryWriter()
 
     rawdata_root = ""
     anno_train = ""
@@ -90,8 +89,7 @@ def main(args):
         args.num_classes = 80
         crop_dim_vertical = False
         center_resize_size=512
-        # rawdata_root = './dataset/COTTON/images_pytorch/'
-        rawdata_root = './dataset/COTTON/images4/'
+        rawdata_root = './dataset/COTTON/images_pytorch/'
         anno_train = './dataset/COTTON/anno/train.txt'
         anno_test = './dataset/COTTON/anno/test.txt'
     elif args.dataset == "SoyAgeing":
@@ -132,9 +130,6 @@ def main(args):
     else:
         raise ValueError(f"Unsupported dataset: {args.dataset}")
 
-    if args.save_model:
-        if os.path.exists(f"./{args.save_dirname}") is False:
-            os.makedirs(f"./{args.save_dirname}")
 
     data_transform = {
         "train": transforms.Compose([
@@ -178,59 +173,18 @@ def main(args):
 
     model = MyModel(args).to(device)
 
-    # checkpoint = torch.load(args.trained_weights, map_location='cpu')
-    # model.load_state_dict(checkpoint['model_state_dict'], strict=True)
-    # model.load_state_dict(checkpoint)
+    checkpoint = torch.load(args.trained_weights, map_location='cpu')
+    model.load_state_dict(checkpoint['model_state_dict'], strict=True)
 
-    pg = [p for p in model.parameters() if p.requires_grad]
-    optimizer = optim.SGD(pg, lr=args.lr, momentum=0.9, weight_decay=1e-4, nesterov=True)
 
-    start_epoch = -1
+    # validate
+    val_loss, val_acc = evaluate_acc(model=model,
+                                     data_loader=val_loader,
+                                     device=device,
+                                     epoch=1)
 
-    lf = lambda x: ((1 + math.cos(x * math.pi / args.epochs)) / 2) * (1 - args.lrf) + args.lrf  # cosine
-    scheduler = lr_scheduler.LambdaLR(optimizer, lr_lambda=lf)
-
-    min_val_loss = 100
-    max_val_acc = 0
-    for epoch in range(0, args.epochs):
-        # train
-        train_loss, train_acc = train_one_epoch_acc(model=model,
-                                                    optimizer=optimizer,
-                                                    data_loader=train_loader,
-                                                    device=device,
-                                                    epoch=epoch)
-        # train_loss, train_acc=0,0
-
-        scheduler.step()
-
-        # validate
-        val_loss, val_acc = evaluate_acc(model=model,
-                                         data_loader=val_loader,
-                                         device=device,
-                                         epoch=epoch)
-
-        logger.info(
-            f"[epoch {epoch}] train loss: {train_loss:.4f}, val loss: {val_loss:.4f}, train acc: {train_acc:.4f}, val acc: {val_acc:.4f}")
-        if args.save_model:
-            if (val_acc > max_val_acc):
-                max_val_acc = val_acc
-                torch.save({
-                    'model_state_dict': model.state_dict(),
-                    'val_acc': val_acc
-                }, "./{}/model-max_acc.pth".format(args.save_dirname))
-        else:
-            if val_loss < min_val_loss:
-                min_val_loss = val_loss
-            if (val_acc > max_val_acc):
-                max_val_acc = val_acc
-        tags = ["train_loss", "train_accuracy", "val_loss", "val_accuracy", "learning_rate"]
-        tb_writer.add_scalar(tags[0], train_loss, epoch)
-        tb_writer.add_scalar(tags[1], train_acc, epoch)
-        tb_writer.add_scalar(tags[2], val_loss, epoch)
-        tb_writer.add_scalar(tags[3], val_acc, epoch)
-        tb_writer.add_scalar(tags[4], optimizer.param_groups[0]["lr"], epoch)
-    logger.info("max_val_acc: {} min_val_loss:{}".format(max_val_acc, min_val_loss))
-    logger.info("Finished Train!")
+    logger.info(
+        f"[epoch {1}]  val loss: {val_loss:.4f}, val acc: {val_acc:.4f}")
 
 
 if __name__ == '__main__':
@@ -273,14 +227,14 @@ if __name__ == '__main__':
     parser.add_argument('--save_dirname', type=str, default='weights')
     parser.add_argument('--weights_path', type=str, default='./weights/efficientnet_b0_ra-3dd342df.pth')
 
-    parser.add_argument('--trained_weights', type=str, default='./weights_COTTON_seed3407/model-max_acc.pth')
+    parser.add_argument('--trained_weights', type=str, default='./weights_COTTON_seed3405/model-max_acc.pth')
 
-    parser.add_argument('--save_model', type=bool, default=True)
+    parser.add_argument('--save_model', type=bool, default=False)
 
-    parser.add_argument('--seed', type=int, default=3407)
+    parser.add_argument('--seed', type=int, default=3405)
     parser.add_argument('--stage', type=str, default='R6')
     # soybean200、SoyAgeing、COTTON
-    parser.add_argument('--dataset', type=str, default='SoyAgeing')
+    parser.add_argument('--dataset', type=str, default='COTTON')
 
     parser.add_argument('--position', type=str, default='U')
 

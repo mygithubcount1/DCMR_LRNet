@@ -73,19 +73,15 @@ class BottomCrop:
 def main(args):
     set_seed(args.seed)
     device = torch.device(args.device if torch.cuda.is_available() else "cpu")
-    logging.info(args)
-    logging.info('Start Tensorboard with "tensorboard --logdir=runs", view at http://localhost:6006/')
     tb_writer = SummaryWriter()
-    if args.save_model:
-        if os.path.exists(f"./{args.save_dirname}") is False:
-            os.makedirs(f"./{args.save_dirname}")
+
 
     rawdata_root = ""
     anno_train = ""
     anno_test = ""
     crop_dim_vertical = True
     dataset_class = BaseFGDataset  
-
+    args.save_dirname = f'{args.save_dirname}_{args.dataset}_seed{args.seed}'
     if args.dataset == 'COTTON':
         args.num_classes = 80
         crop_dim_vertical = False
@@ -94,6 +90,7 @@ def main(args):
         anno_test = './dataset/COTTON/anno/test.txt'
     elif args.dataset == "SoyAgeing":
         args.num_classes = 198
+        args.save_dirname = f'{args.save_dirname}_stage{args.stage}'
         rawdata_root = f'./dataset/SoyAgeing/{args.stage}/images4/'
         anno_train = f'./dataset/SoyAgeing/{args.stage}/anno/train.txt'
         anno_test = f'./dataset/SoyAgeing/{args.stage}/anno/test.txt'
@@ -101,9 +98,11 @@ def main(args):
         args.num_classes = 200
         rawdata_root = r'./dataset/SoyCultivar200_dataset'
         if args.swap:
+            args.save_dirname = f'{args.save_dirname}_position{args.position}_swap'
             anno_train = rf'./dataset/200_anno2/train_swap_{args.position}.txt'
             anno_test = rf'./dataset/200_anno2/test_swap_{args.position}.txt'
         else:
+            args.save_dirname = f'{args.save_dirname}_position{args.position}'
             anno_train = rf'./dataset/200_anno2/train_{args.position}.txt'
             anno_test = rf'./dataset/200_anno2/test_{args.position}.txt'
         dataset_class = SoyCultivar200FGDataset  
@@ -129,6 +128,11 @@ def main(args):
     resize_size = args.resize_size
     crop_size = args.crop_size
 
+
+    if args.save_model:
+        if os.path.exists(f"./{args.save_dirname}") is False:
+            os.makedirs(f"./{args.save_dirname}")
+
     data_transform = {
         "train": transforms.Compose([
             transforms.RandomResizedCrop(crop_size),
@@ -152,8 +156,9 @@ def main(args):
             transforms.ToTensor(),
         ])
     }
-    logging.info(args)
 
+    logging.info(args)
+    logging.info('Start Tensorboard with "tensorboard --logdir=runs", view at http://localhost:6006/')
 
     nw = args.nw
     logger.info('Using {} dataloader workers every process'.format(nw))
@@ -172,7 +177,6 @@ def main(args):
     model = MyModel(args).to(device)
     # checkpoint = torch.load(args.weights, map_location='cpu')
     # model.load_state_dict(checkpoint['model_state_dict'], strict=False)
-    # model.load_state_dict(checkpoint)
 
     pg = [p for p in model.parameters() if p.requires_grad]
     optimizer = optim.SGD(pg, lr=args.lr, momentum=0.9, weight_decay=1e-4, nesterov=True)
@@ -203,22 +207,10 @@ def main(args):
         logger.info(
             f"[epoch {epoch}] train loss: {train_loss:.4f}, val loss: {val_loss:.4f}, train acc: {train_acc:.4f}, val acc: {val_acc:.4f}")
         if args.save_model:
-            if val_loss < min_val_loss:
-                min_val_loss = val_loss
-                torch.save({
-                    'model_state_dict': model.state_dict(),
-                    'optimizer_state_dict': optimizer.state_dict(),
-                    'epoch': epoch,
-                    'loss': val_loss,
-                    'val_acc': val_acc
-                }, "./{}/model-min_mean_loss.pth".format(args.save_dirname))
             if (val_acc > max_val_acc):
                 max_val_acc = val_acc
                 torch.save({
                     'model_state_dict': model.state_dict(),
-                    'optimizer_state_dict': optimizer.state_dict(),
-                    'epoch': epoch,
-                    'loss': val_loss,
                     'val_acc': val_acc
                 }, "./{}/model-max_acc.pth".format(args.save_dirname))
         else:
@@ -273,9 +265,9 @@ if __name__ == '__main__':
     parser.add_argument('--freeze-layers', type=bool, default=False)
     parser.add_argument('--device', default='cuda', help='device id (i.e. 0 or 0,1 or cpu)')
 
-    parser.add_argument('--save_dirname', type=str, default='weights')
+    parser.add_argument('--save_dirname', type=str, default='weights_resnet_cotton')
 
-    parser.add_argument('--save_model', type=bool, default=False)
+    parser.add_argument('--save_model', type=bool, default=True)
 
     parser.add_argument('--seed', type=int, default=3407)
     parser.add_argument('--stage', type=str, default='R1')
