@@ -5,6 +5,13 @@ This repository contains the official implementation of the paper:
 > *Dual-Branch Feature Fusion and Multi-Region Ensemble for Ultra-Fine-Grained Plant Leaf Visual Recognition**
 > Submitted to *The Visual Computer* (2026).
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20046011.svg)](https://doi.org/10.5281/zenodo.20046011)
+
+## 🔗 Permanent Resources
+
+- **Source Code**: [GitHub Repository](https://github.com/mygithubcount1/DCMR_LRNet)
+- **DOI**: [10.5281/zenodo.20046011](https://doi.org/10.5281/zenodo.20046011)
+
 ## Environment
 
 There are two independent runtime environments for this project:
