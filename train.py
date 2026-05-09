@@ -280,7 +280,7 @@ if __name__ == '__main__':
     parser.add_argument('--seed', type=int, default=3407)
     parser.add_argument('--stage', type=str, default='R6')
     # soybean200、SoyAgeing、COTTON
-    parser.add_argument('--dataset', type=str, default='SoyAgeing')
+    parser.add_argument('--dataset', type=str, default='COTTON')
 
     parser.add_argument('--position', type=str, default='U')
 
