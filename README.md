@@ -12,6 +12,18 @@ This repository contains the official implementation of the paper:
 - **Source Code**: [GitHub Repository](https://github.com/mygithubcount1/DCMR_LRNet)
 - **DOI**: [10.5281/zenodo.20046011](https://doi.org/10.5281/zenodo.20046011)
 
+## Core Abstract
+
+Ultra-fine-grained visual categorization (ultra-FGVC) is a critical task in computer vision with wide applications in precision agriculture. It remains challenging due to high inter-class similarity and subtle inter-varietal differences in plant leaves. Existing methods often rely on single-branch architectures and fail to fully exploit complementary color and texture features, leading to limited performance. This paper proposes a dual-branch framework integrating cross-layer bidirectional attention fusion and multi-region prediction ensemble for ultra-fine-grained plant leaf recognition. The method separately extracts color and texture features, enhances cross-branch and cross-layer information interaction, and aggregates multi-region predictions to improve robustness. Extensive experiments on six datasets show that our method outperforms state-of-the-art approaches by 3.92% to 14.09% in accuracy with only 11.28M parameters and 10.86 GFLOPs. This work provides an effective solution for efficient and accurate fine-grained plant identification, which can support crop breeding and agricultural management.
+
+## Key Features
+
+- ✅ Dual-branch architecture for complementary color and texture feature extraction
+- ✅ Dual-branch Cross-layer bidirectional attention (DCBA) module for enhanced cross-branch and cross-layer information interaction
+- ✅ Multi-region prediction ensemble for improved recognition robustness
+- ✅ State-of-the-art performance on 6 ultra-fine-grained plant leaf datasets
+- ✅ Lightweight design, easy to reproduce and deploy for precision agriculture scenarios
+
 ## Environment
 
 There are two independent runtime environments for this project:
