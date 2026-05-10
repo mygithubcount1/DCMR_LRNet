@@ -114,6 +114,7 @@ def main(args):
         center_resize_size =512
     elif args.dataset == "soybean200":
         args.num_classes = 200
+        crop_dim_vertical = False
         rawdata_root = './dataset/soybean200/images_pytorch/'
         anno_train = './dataset/soybean200/anno/train.txt'
         anno_test = './dataset/soybean200/anno/test.txt'
