@@ -18,3 +18,53 @@
 2026-05-09 14:13:34,913 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
 2026-05-09 14:13:35,078 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
 2026-05-09 14:14:28,620 - INFO - [epoch 1]  val loss: 14.4553, val acc: 0.6367
+2026-05-12 15:27:22,024 - INFO - Namespace(num_classes=198, epochs=160, nw=2, batch_size=4, lr=0.001, lrf=0.01, model_name='efficientnet_b0', freeze_layers=False, device='cuda', save_dirname='weights_SoyAgeing_seed3407_stageR1', weights_path='./weights/efficientnet_b0_ra-3dd342df.pth', trained_weights='./weights_SoyAgeing_seed3407_stageR1/model-max_acc.pth', save_model=False, seed=3407, stage='R1', dataset='SoyAgeing', position='U', swap=False, resize_size=590, crop_size=448)
+2026-05-12 15:27:22,025 - INFO - Start Tensorboard with "tensorboard --logdir=runs", view at http://localhost:6006/
+2026-05-12 15:27:22,025 - INFO - Using 2 dataloader workers every process
+2026-05-12 15:27:22,046 - INFO - Training dataset size: 990
+2026-05-12 15:27:22,047 - INFO - Validation dataset size: 990
+2026-05-12 15:27:22,271 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
+2026-05-12 15:27:22,441 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
+2026-05-12 15:27:22,598 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
+2026-05-12 15:27:22,743 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
+2026-05-12 15:28:47,455 - INFO - [epoch 1]  val loss: 5.7650, val acc: 0.9010
+2026-05-12 19:43:55,919 - INFO - Namespace(num_classes=198, epochs=160, nw=2, batch_size=4, lr=0.001, lrf=0.01, model_name='efficientnet_b0', freeze_layers=False, device='cuda', save_dirname='weights_SoyAgeing_seed3407_stageR3', weights_path='./weights/efficientnet_b0_ra-3dd342df.pth', trained_weights='./weights_SoyAgeing_seed3407_stageR3/model-max_acc.pth', save_model=False, seed=3407, stage='R3', dataset='SoyAgeing', position='U', swap=False, resize_size=590, crop_size=448)
+2026-05-12 19:43:55,920 - INFO - Start Tensorboard with "tensorboard --logdir=runs", view at http://localhost:6006/
+2026-05-12 19:43:55,921 - INFO - Using 2 dataloader workers every process
+2026-05-12 19:43:55,965 - INFO - Training dataset size: 990
+2026-05-12 19:43:55,966 - INFO - Validation dataset size: 990
+2026-05-12 19:43:56,189 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
+2026-05-12 19:43:56,322 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
+2026-05-12 19:43:56,460 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
+2026-05-12 19:43:56,620 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
+2026-05-12 19:45:20,018 - INFO - [epoch 1]  val loss: 4.2745, val acc: 0.8848
+2026-05-12 23:28:10,355 - INFO - Namespace(num_classes=198, epochs=160, nw=2, batch_size=4, lr=0.001, lrf=0.01, model_name='efficientnet_b0', freeze_layers=False, device='cuda', save_dirname='weights_SoyAgeing_seed3407_stageR4', weights_path='./weights/efficientnet_b0_ra-3dd342df.pth', trained_weights='./weights_SoyAgeing_seed3407_stageR4/model-max_acc.pth', save_model=False, seed=3407, stage='R4', dataset='SoyAgeing', position='U', swap=False, resize_size=590, crop_size=448)
+2026-05-12 23:28:10,356 - INFO - Start Tensorboard with "tensorboard --logdir=runs", view at http://localhost:6006/
+2026-05-12 23:28:10,356 - INFO - Using 2 dataloader workers every process
+2026-05-12 23:28:10,406 - INFO - Training dataset size: 990
+2026-05-12 23:28:10,407 - INFO - Validation dataset size: 990
+2026-05-12 23:28:10,633 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
+2026-05-12 23:28:10,840 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
+2026-05-12 23:28:10,979 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
+2026-05-12 23:28:11,139 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
+2026-05-12 23:29:34,561 - INFO - [epoch 1]  val loss: 3.9103, val acc: 0.8949
+2026-05-13 09:27:15,716 - INFO - Namespace(num_classes=198, epochs=160, nw=2, batch_size=4, lr=0.001, lrf=0.01, model_name='efficientnet_b0', freeze_layers=False, device='cuda', save_dirname='weights_SoyAgeing_seed3407_stageR5', weights_path='./weights/efficientnet_b0_ra-3dd342df.pth', trained_weights='./weights_SoyAgeing_seed3407_stageR5/model-max_acc.pth', save_model=False, seed=3407, stage='R5', dataset='SoyAgeing', position='U', swap=False, resize_size=590, crop_size=448)
+2026-05-13 09:27:15,717 - INFO - Start Tensorboard with "tensorboard --logdir=runs", view at http://localhost:6006/
+2026-05-13 09:27:15,717 - INFO - Using 2 dataloader workers every process
+2026-05-13 09:27:15,760 - INFO - Training dataset size: 990
+2026-05-13 09:27:15,761 - INFO - Validation dataset size: 990
+2026-05-13 09:27:15,979 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
+2026-05-13 09:27:16,092 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
+2026-05-13 09:27:16,231 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
+2026-05-13 09:27:16,375 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
+2026-05-13 09:28:39,851 - INFO - [epoch 1]  val loss: 3.5181, val acc: 0.9051
+2026-05-13 09:29:17,522 - INFO - Namespace(num_classes=198, epochs=160, nw=2, batch_size=4, lr=0.001, lrf=0.01, model_name='efficientnet_b0', freeze_layers=False, device='cuda', save_dirname='weights_SoyAgeing_seed3407_stageR6', weights_path='./weights/efficientnet_b0_ra-3dd342df.pth', trained_weights='./weights_SoyAgeing_seed3407_stageR6/model-max_acc.pth', save_model=False, seed=3407, stage='R6', dataset='SoyAgeing', position='U', swap=False, resize_size=590, crop_size=448)
+2026-05-13 09:29:17,523 - INFO - Start Tensorboard with "tensorboard --logdir=runs", view at http://localhost:6006/
+2026-05-13 09:29:17,523 - INFO - Using 2 dataloader workers every process
+2026-05-13 09:29:17,554 - INFO - Training dataset size: 990
+2026-05-13 09:29:17,555 - INFO - Validation dataset size: 990
+2026-05-13 09:29:17,680 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
+2026-05-13 09:29:17,718 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
+2026-05-13 09:29:17,863 - INFO - Loading pretrained weights from file (./weights/efficientnet_b0_ra-3dd342df.pth)
+2026-05-13 09:29:18,009 - INFO - Loaded  from checkpoint './weights/efficientnet_b0_ra-3dd342df.pth'
+2026-05-13 09:30:39,767 - INFO - [epoch 1]  val loss: 8.8336, val acc: 0.8111
